@@ -1,4 +1,4 @@
-# 🏛️ Simple DAO with Superfluid.Finanace
+# 🏛️ Simple DAO with Superfluid Finance
 
 > Quickly spin up a DAO smart contract where you choose the initial group of members.
 
