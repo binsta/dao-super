@@ -1,4 +1,4 @@
-# 🏛️ Simple DAO with Re-Entrancy Example
+# 🏛️ Simple DAO with Superfluid.Finanace
 
 > Quickly spin up a DAO smart contract where you choose the initial group of members.
 
@@ -12,11 +12,6 @@ Public Goods...
 This type of DAO can be used by sports teams to pay for field time, equipment, travel, etc. Another use case is for public contruction or maintenance projects. 
 A neighborhood/ town/ governoment can deposit a bunch of funds which can be democratically voted on and invoices can be submitted by the contractors.  
 
-## ⭐ Bonus
-
-A re-entrancy proxy contract has been created to verify the security of the PowDAO contract withdraw function. This contract can be found in `packages/hardhat/contracts`. To mimic a re-entrancy attack, uncomment the file in the deploy script `packages\hardhat\deploy\00_deploy_your_contract.js` and uncomment the 2 function calls in the contract itself ('powdao.getPayoutUnsafe(address(this));'). On deploy, this 'attacking' smart contract will create a proposal and if the proposal is approved by DAO members the proposer can withdraw the funds. To create a re-entrancy attack when you are withdrawing your funds, use the 'getPayoutUnsafe' function versus 'getPayout' which does not have the re-entrancy vulnerability. 
-
-Re-entrancy is caused by repeatedly calling the a fallback function in the proxy contracts receive function. This will create a loop which will be executed until it runs out of gas making repeated function calls. Try for yourself!
 
 [Info on Re-Entrancy Attack](https://quantstamp.com/blog/what-is-a-re-entrancy-attack)
 
@@ -27,17 +22,15 @@ Prerequisites: [Node](https://nodejs.org/en/download/) plus [Yarn](https://class
 > clone/fork 🏗 scaffold-eth:
 
 ```bash
-git clone https://github.com/austintgriffith/scaffold-eth.git simple-proposal-DAO-re-entrancy-ex
+git clone https://github.com/binsta/dao-super
 
-cd simple-proposal-DAO-re-entrancy-ex
-
-git checkout simple-proposal-DAO-re-entrancy-ex
+cd dao-super
 ```
 
 > install and start your 👷‍ Hardhat chain:
 
 ```bash
-cd simple-proposal-DAO-re-entrancy-ex
+cd dao-super
 yarn install
 yarn chain
 ```
@@ -45,14 +38,14 @@ yarn chain
 > in a second terminal window, start your 📱 frontend:
 
 ```bash
-cd simple-proposal-DAO-re-entrancy-ex
+cd dao-super
 yarn start
 ```
 
 > in a third terminal window, 🛰 deploy your contract:
 
 ```bash
-cd simple-proposal-DAO-re-entrancy-ex
+cd dao-super
 yarn deploy
 ```
 
